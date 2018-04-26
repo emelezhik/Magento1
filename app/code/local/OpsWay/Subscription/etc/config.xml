@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <OpsWay_Subscription>
+            <version>1.0.0</version>
+        </OpsWay_Subscription>
+    </modules>
+    <frontend>
+        <routers>
+            <opsway_subscription>
+                <use>standard</use>
+                <args>
+                    <frontName>subscription</frontName>
+                    <module>OpsWay_Subscription</module>
+                </args>
+            </opsway_subscription>
+        </routers>
+        <layout>
+          <updates>
+            <subscription>
+              <file>subscription.xml</file>
+            </subscription>
+          </updates>
+        </layout>
+    </frontend>
+</config>

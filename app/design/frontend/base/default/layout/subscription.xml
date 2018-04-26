@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+  <default>
+  </default>
+  <opsway_subscription_index_index>
+    <label>Subscription form module HAHAHA</label>
+    <reference name="head">
+      <action method="addJs"><script>opsway/subscription.js</script></action>
+    </reference>
+    <reference name="content">
+      <block type="core/template" name="OpswaySubscriptionForm" template="opsway/subscription/form.phtml"/>
+    </reference>
+  </opsway_subscription_index_index>
+
+</layout>
