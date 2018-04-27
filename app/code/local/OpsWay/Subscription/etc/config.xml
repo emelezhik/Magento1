@@ -2,9 +2,21 @@
 <config>
     <modules>
         <OpsWay_Subscription>
-            <version>1.0.1</version>
+            <version>1.0.3</version>
         </OpsWay_Subscription>
     </modules>
+    <crontab>
+      <jobs>
+        <custom_cron_task>
+          <schedule>
+            <cron_expr>*/1 * * * *</cron_expr>
+          </schedule>
+          <run>
+            <model>opsway_subscription_cron/cron::crontask</model>
+          </run>
+        </custom_cron_task>
+      </jobs>
+    </crontab>
     <frontend>
         <routers>
             <opsway_subscription>
@@ -37,6 +49,9 @@
              </opswaymessage>
            </entities>
          </opsway_subscription_resource>
+         <opsway_subscription_cron>
+           <class>OpsWay_Subscription_Model</class>
+         </opsway_subscription_cron>
       </models>
       <resources>
         <opsway_subscription_setup>

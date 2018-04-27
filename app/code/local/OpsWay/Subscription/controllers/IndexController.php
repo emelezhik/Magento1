@@ -42,12 +42,14 @@ class OpsWay_Subscription_IndexController extends Mage_Core_Controller_Front_Act
 
   public function messagesAllAction() {
     $messages = Mage::getModel('opsway_subscription/opswaymessage')->getCollection();
+    $messages->addFieldToFilter('status',array("New"));
     print "<h1>List of all stored opsway message entities</h1>";
-    print "<table cellspacing='5' cellpadding='10' border='1'><tr><td>Message ID</td><td>Name</td><td>E-mail</td><td>Phone</td><td>Action links</td></tr>";
+    print "<table cellspacing='5' cellpadding='10' border='1'><tr><td>Message ID</td><td>Status</td><td>Name</td><td>E-mail</td><td>Phone</td><td>Action links</td></tr>";
     foreach($messages AS $message) {
       $id = $message->getMessageId();
       echo "<tr>";
       echo "<td>{$id}</td>";
+      echo "<td>".$message->getStatus()."</td>";
       echo "<td>".$message->getName()."</td>";
       echo "<td>".$message->getEmail()."</td>";
       echo "<td>".$message->getPhone()."</td>";
@@ -92,11 +94,15 @@ class OpsWay_Subscription_IndexController extends Mage_Core_Controller_Front_Act
     };
 
     if(!$error_flag) {
-      $mess_text = "<p>Phone: {$phone_filtered}</p>
-		<p>E-mail: {$mail_filtered}</p>
-		<p>Message:</p>{$message_filtered}";
-      mail("evmel@opsway.com", "Message from {$name_filtered}", $mess_text);
-      echo "Successful! $mess_text";
+      $model = Mage::getModel('opsway_subscription/opswaymessage');
+      $model->setCreatedAt(time())
+	   ->setEmail($mail_filtered)
+	   ->setName($name_filtered)
+	   ->setPhone($phone_filtered)
+	   ->setMessageBody($message_filtered)
+	   ->setStatus("New")
+           ->save();
+      echo "Successful!";
     };
   }
 
@@ -105,9 +111,6 @@ class OpsWay_Subscription_IndexController extends Mage_Core_Controller_Front_Act
       return FALSE;
     }
     if (strpos($mail, '.') == false) {
-      return FALSE;
-    }
-    if (strpos($mail, '@') > strpos($mail, '.')) {
       return FALSE;
     }
     return TRUE;
