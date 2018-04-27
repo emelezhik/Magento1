@@ -2,7 +2,7 @@
 <config>
     <modules>
         <OpsWay_Subscription>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </OpsWay_Subscription>
     </modules>
     <frontend>
@@ -23,4 +23,27 @@
           </updates>
         </layout>
     </frontend>
+    <global>
+      <models>
+         <opsway_subscription>
+           <class>OpsWay_Subscription_Model</class>
+           <resourceModel>opsway_subscription_resource</resourceModel>
+         </opsway_subscription>
+         <opsway_subscription_resource>
+           <class>OpsWay_Subscription_Model_Resource</class>
+           <entities>
+             <opswaymessage>
+               <table>opsway_subscription_opswaymessage</table>
+             </opswaymessage>
+           </entities>
+         </opsway_subscription_resource>
+      </models>
+      <resources>
+        <opsway_subscription_setup>
+          <setup>
+            <module>OpsWay_Subscription</module>
+          </setup>
+        </opsway_subscription_setup>
+      </resources>
+    </global>
 </config>

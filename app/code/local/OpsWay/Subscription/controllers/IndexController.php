@@ -7,6 +7,56 @@ class OpsWay_Subscription_IndexController extends Mage_Core_Controller_Front_Act
     $this->renderLayout();
   }
 
+  public function messageAction() {
+    $params = $this->getRequest()->getParams();
+    $message = Mage::getModel('opsway_subscription/opswaymessage');
+    echo("<p>Loading the message with an ID of ".$params['id'])."</p><p> &nbsp; </p>";
+    $message->load($params['id']);
+    echo "<p>Message ID: ".$message->getMessageId()."</p>";
+    echo "<p>Author name: ".$message->getName()."</p>";
+    echo "<p>Author e-mail: ".$message->getEmail()."</p>";
+    echo "<p>Author phone: ".$message->getPhone()."</p>";
+    echo "<p><u>Message:</u></p>";
+    echo "<p>".$message->getMessageBody()."</p>";
+  }
+
+  public function appendMessageAction() {
+    $params = $this->getRequest()->getParams();
+    $message = Mage::getModel('opsway_subscription/opswaymessage');
+    echo("<p>Altering the message with an ID of ".$params['id'])."</p><p> &nbsp; </p>";
+    $message->load($params['id']);
+    echo "<p>Message body was:</p><p>".$message->getMessageBody()."</p>";
+    echo "<p>...</p>";
+    echo "<p>...</p>";
+    echo "<p>... modifications ...</p>";
+
+    $message->setMessageBody($message->getMessageBody() . "<p>surprise!</p>");
+    $message->save();
+
+    echo "<p>... and now ...</p>";
+    echo "<p>...</p>";
+    echo "<p>...</p>";
+    echo "<p><u>Message body is:</u></p>";
+    echo "<p>".$message->getMessageBody()."</p>";
+  }
+
+  public function messagesAllAction() {
+    $messages = Mage::getModel('opsway_subscription/opswaymessage')->getCollection();
+    print "<h1>List of all stored opsway message entities</h1>";
+    print "<table cellspacing='5' cellpadding='10' border='1'><tr><td>Message ID</td><td>Name</td><td>E-mail</td><td>Phone</td><td>Action links</td></tr>";
+    foreach($messages AS $message) {
+      $id = $message->getMessageId();
+      echo "<tr>";
+      echo "<td>{$id}</td>";
+      echo "<td>".$message->getName()."</td>";
+      echo "<td>".$message->getEmail()."</td>";
+      echo "<td>".$message->getPhone()."</td>";
+      echo "<td><a target=_blank href='/subscription/index/message/id/{$id}'>View full text</a> <br>";
+      echo "<a target=_blank href='/subscription/index/appendMessage/id/{$id}'>Append message</a></td>";
+      echo "</tr>";
+    };
+  }
+
   public function postAction() {
     $error_flag = FALSE;
     if(!isset($_POST['name']) || $_POST['name'] == "") {
