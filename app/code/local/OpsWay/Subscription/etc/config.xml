@@ -9,7 +9,7 @@
       <jobs>
         <custom_cron_task>
           <schedule>
-            <cron_expr>*/1 * * * *</cron_expr>
+            <cron_expr>*/15 * * * *</cron_expr>
           </schedule>
           <run>
             <model>opsway_subscription_cron/cron::crontask</model>
@@ -60,5 +60,21 @@
           </setup>
         </opsway_subscription_setup>
       </resources>
+      <blocks>
+        <subscription>
+          <class>OpsWay_Subscription_Block</class>
+        </subscription>
+      </blocks>
     </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <OpsWay_Subscription after="Mage_Adminhtml">OpsWay_Subscription</OpsWay_Subscription>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
 </config>

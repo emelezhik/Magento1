@@ -27,6 +27,3 @@ $table = $installer->getConnection()
 $installer->getConnection()->createTable($table);
  
 $installer->endSetup();
-
-// var_dump($installer);
-// die("INSTALLER CALLED!");

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<config>
+        <menu>
+            <subscription>
+                <title>Messages</title>
+                <sort_order>71</sort_order>              
+                <children>
+                    <items>
+                        <title>Manage Messages</title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/subscription/index</action>
+                    </items>
+                </children>
+            </subscription>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <OpsWay_Subscription>
+                            <title>Subscription Module</title>
+                            <sort_order>10</sort_order>
+                        </OpsWay_Subscription>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+</config>

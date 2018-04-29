@@ -42,7 +42,6 @@ class OpsWay_Subscription_IndexController extends Mage_Core_Controller_Front_Act
 
   public function messagesAllAction() {
     $messages = Mage::getModel('opsway_subscription/opswaymessage')->getCollection();
-    $messages->addFieldToFilter('status',array("New"));
     print "<h1>List of all stored opsway message entities</h1>";
     print "<table cellspacing='5' cellpadding='10' border='1'><tr><td>Message ID</td><td>Status</td><td>Name</td><td>E-mail</td><td>Phone</td><td>Action links</td></tr>";
     foreach($messages AS $message) {
