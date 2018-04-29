@@ -1,0 +1,12 @@
+.catalog-product-view #orderedproducts {
+  width: 500px;
+  display: block;
+  margin: 20px auto;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.catalog-product-view #orderedproducts h1 {
+  text-align: center;
+  color: green;
+}

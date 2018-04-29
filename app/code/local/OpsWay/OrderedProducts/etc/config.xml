@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <OpsWay_OrderedProducts>
+            <version>1.0.0</version>
+        </OpsWay_OrderedProducts>
+    </modules>
+    <global>
+      <blocks>
+        <orderedproducts>
+          <class>OpsWay_OrderedProducts_Block</class>
+        </orderedproducts>
+      </blocks>
+      <helpers>
+        <orderedproducts>
+          <class>OpsWay_OrderedProducts_Helper</class>
+        </orderedproducts>
+      </helpers>
+    </global>
+    <frontend>
+      <layout>
+        <updates>
+          <test>
+            <file>orderedproducts.xml</file>
+          </test>
+        </updates>
+      </layout>
+    </frontend>
+</config>

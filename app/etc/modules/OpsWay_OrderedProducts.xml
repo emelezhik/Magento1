@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <OpsWay_OrderedProducts>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends></depends>
+        </OpsWay_OrderedProducts>
+    </modules>
+</config>
