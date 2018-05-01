@@ -10,13 +10,10 @@ class OpsWay_OrderedProducts_Block_Products extends Mage_Core_Block_Template
 
     public function getProductsList() 
     {
-        $default_items_quantity = 5;
-        $items_quantity = Mage::getStoreConfig('orderedproducts_options/opsway_group/opsway_displayquantity');
-        $items_quantity = isset($items_quantity) ? (int) $items_quantity : $default_items_quantity;
-        $items_quantity = $items_quantity != 0 ? $items_quantity : $default_items_quantity;
-        $customer = Mage::getSingleton('customer/session')->getCustomer();
-        $email = $customer->getEmail();
-        if(isset($email) && $email != "") {
+        $items_quantity = Mage::helper('opsway_orderedproducts')->getDisplayQuantity();
+
+        if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+            $email = Mage::getSingleton('customer/session')->getCustomer()->getEmail();
             return $this->getProductsListAuthorized($items_quantity, $email);
         } else {
             return $this->getProductsListAnonymous($items_quantity);
@@ -79,6 +76,11 @@ class OpsWay_OrderedProducts_Block_Products extends Mage_Core_Block_Template
         $price = isset($data->price) && is_numeric($data->price) ? "$" . number_format($data->price, 2, '.', '') : "";
         $output = "<div class='listimage'><img src='{$imgurl}'><p class='prdesc'><a target='_blank' href='{$url}'>{$data->name}, <br> {$price}</a></p></div>";
         return $output;
+    }
+
+    protected function _toHtml()
+    {
+        return Mage::helper('opsway_orderedproducts')->isEnabled() ? parent::_toHtml() : '';
     }
 
 }

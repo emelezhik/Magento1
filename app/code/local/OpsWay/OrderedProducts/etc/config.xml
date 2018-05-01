@@ -7,19 +7,19 @@
     </modules>
     <global>
       <blocks>
-        <orderedproducts>
+        <opsway_orderedproducts>
           <class>OpsWay_OrderedProducts_Block</class>
-        </orderedproducts>
+        </opsway_orderedproducts>
       </blocks>
       <helpers>
-        <orderedproducts>
+        <opsway_orderedproducts>
           <class>OpsWay_OrderedProducts_Helper</class>
-        </orderedproducts>
+        </opsway_orderedproducts>
       </helpers>
       <models>
-         <orderedproducts>
+         <opsway_orderedproducts>
             <class>OpsWay_OrderedProducts_Model</class>
-         </orderedproducts>
+         </opsway_orderedproducts>
       </models>
     </global>
     <frontend>

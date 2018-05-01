@@ -7,7 +7,7 @@
     </reference>
 
     <reference name="content">
-      <block type="orderedproducts/products" name="myproducts" template="orderedproducts/products.phtml"/>
+      <block type="opsway_orderedproducts/products" name="myproducts" template="orderedproducts/products.phtml"/>
     </reference>
 
   </catalog_product_view>
