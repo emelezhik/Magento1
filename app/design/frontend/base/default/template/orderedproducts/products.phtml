@@ -1,5 +1,15 @@
-<div id="orderedproducts">
-<h1>Ordered products Widget</h1>
-<p>Hello... Can you see me ? If yes I just want to say</p>
-<h4><?php echo $this->getTestText(); ?></h4> 
+<?php 
+$visibility = Mage::getStoreConfig('orderedproducts_options/opsway_group/opsway_visibility');
+if($visibility) {
+?>
+
+<div class="orderedproducts">
+<h1>Ordered products List</h1>
+<div class="orderedproductslist">
+<?php echo $this->getProductsList(); ?>
 </div>
+</div>
+
+<?php
+}
+?>

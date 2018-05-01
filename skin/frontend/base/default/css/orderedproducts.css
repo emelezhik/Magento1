@@ -1,12 +1,23 @@
-.catalog-product-view #orderedproducts {
-  width: 500px;
+.catalog-product-view .orderedproducts {
+  width: 510px;
   display: block;
   margin: 20px auto;
   border: 1px solid red;
   padding: 10px;
 }
 
-.catalog-product-view #orderedproducts h1 {
+.catalog-product-view .orderedproducts h1 {
   text-align: center;
   color: green;
+  display: block;
+}
+
+.catalog-product-view .orderedproducts .orderedproductslist {
+  display: inline-block;
+}
+
+.catalog-product-view .orderedproducts .orderedproductslist .listimage {
+  width: 100px;
+  margin: 10px;
+  float: left;
 }

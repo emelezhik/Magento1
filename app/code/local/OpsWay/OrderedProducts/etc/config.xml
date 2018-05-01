@@ -16,6 +16,11 @@
           <class>OpsWay_OrderedProducts_Helper</class>
         </orderedproducts>
       </helpers>
+      <models>
+         <orderedproducts>
+            <class>OpsWay_OrderedProducts_Model</class>
+         </orderedproducts>
+      </models>
     </global>
     <frontend>
       <layout>

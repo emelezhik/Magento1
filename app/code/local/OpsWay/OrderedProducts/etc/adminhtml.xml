@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <orderedproducts_options>
+                                            <title>OrderedProducts Configuration Section</title>
+                                        </orderedproducts_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+</config>
