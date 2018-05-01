@@ -7,7 +7,7 @@
         </opsway>
     </tabs>
     <sections>
-        <orderedproducts_options translate="label" module="opsway_orderedproducts">
+        <opsway_orderedproducts_options translate="label" module="opsway_orderedproducts">
             <label>Ordered Products Options</label>
             <tab>opsway</tab>
             <sort_order>1000</sort_order>
@@ -48,6 +48,6 @@
                     </fields>
                 </general>
             </groups>
-        </orderedproducts_options>
+        </opsway_orderedproducts_options>
     </sections>
 </config>

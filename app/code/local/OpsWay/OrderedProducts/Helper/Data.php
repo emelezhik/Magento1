@@ -2,8 +2,8 @@
 
 class OpsWay_OrderedProducts_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    const XML_PATH_ENABLED = 'orderedproducts_options/general/visibility';
-    const XML_PATH_DISPLAY_QUANTITY = 'orderedproducts_options/general/display_quantity';
+    const XML_PATH_ENABLED = 'opsway_orderedproducts_options/general/visibility';
+    const XML_PATH_DISPLAY_QUANTITY = 'opsway_orderedproducts_options/general/display_quantity';
     const DEFAULT_ITEMS_TO_BE_DISPLAYED = 5;
 
     public function isEnabled()

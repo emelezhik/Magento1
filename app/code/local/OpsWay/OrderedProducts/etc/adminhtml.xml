@@ -9,9 +9,9 @@
                             <children>
                                 <config>
                                     <children>
-                                        <orderedproducts_options>
+                                        <opsway_orderedproducts_options>
                                             <title>OrderedProducts Configuration Section</title>
-                                        </orderedproducts_options>
+                                        </opsway_orderedproducts_options>
                                     </children>
                                 </config>
                             </children>
