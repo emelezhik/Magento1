@@ -21,6 +21,17 @@
             <class>OpsWay_OrderedProducts_Model</class>
          </opsway_orderedproducts>
       </models>
+      <events>
+        <sales_order_place_after>
+          <observers>
+            <opsway_orderedproducts_blockcache_flush>
+              <type>singleton</type>
+              <class>opsway_orderedproducts/observer</class>
+              <method>BlockCacheFlush</method>
+            </opsway_orderedproducts_blockcache_flush>
+          </observers>
+        </sales_order_place_after>
+      </events>
     </global>
     <frontend>
       <layout>

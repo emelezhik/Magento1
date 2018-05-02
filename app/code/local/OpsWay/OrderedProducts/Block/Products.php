@@ -80,7 +80,30 @@ class OpsWay_OrderedProducts_Block_Products extends Mage_Core_Block_Template
 
     protected function _toHtml()
     {
-        return Mage::helper('opsway_orderedproducts')->isEnabled() ? parent::_toHtml() : '';
+        $use_caching = Mage::helper('opsway_orderedproducts')->useCaching();
+        if(Mage::helper('opsway_orderedproducts')->isEnabled() == true) {
+
+            if(!$use_caching) {
+                return parent::_toHtml();
+            }
+
+            $cache = Mage::app()->getCache();
+            $cached_html = $cache->load(Mage::helper('opsway_orderedproducts')->getCacheKey());
+
+            if($cached_html == false) {
+                $cached_html = parent::_toHtml();
+                $cache->save($cached_html, 
+                             Mage::helper('opsway_orderedproducts')->getCacheKey(), 
+                             array("ordered_products"), 24*60*60);
+            };
+
+            return $cached_html;
+
+        } else {
+
+            return '';
+
+        }
     }
 
 }
